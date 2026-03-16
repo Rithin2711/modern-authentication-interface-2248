@@ -126,10 +126,6 @@ export default function LoginForm({ onSubmit, isSubmitting = false }) {
         >
           Forgot password
         </button>
-
-        <Link className="authForm__link" to="/signup">
-          Sign Up
-        </Link>
       </div>
     </form>
   );
