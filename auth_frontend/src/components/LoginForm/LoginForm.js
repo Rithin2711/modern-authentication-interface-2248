@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import "./LoginForm.css";
 import { isValidEmail, validateRequired } from "../../utils/validation";
 
@@ -112,6 +113,24 @@ export default function LoginForm({ onSubmit, isSubmitting = false }) {
       <button className="btnPrimary" type="submit" disabled={!canSubmit}>
         {isSubmitting ? "Signing in..." : "Sign in"}
       </button>
+
+      <div className="authForm__linkRow" aria-label="Account actions">
+        <button
+          type="button"
+          className="authForm__link"
+          onClick={() => {
+            // Frontend-only scaffold: no reset page exists yet.
+            // This keeps the UI functional without adding new routes.
+            setFormError("Password reset is not available yet.");
+          }}
+        >
+          Forgot password
+        </button>
+
+        <Link className="authForm__link" to="/signup">
+          Sign Up
+        </Link>
+      </div>
     </form>
   );
 }
